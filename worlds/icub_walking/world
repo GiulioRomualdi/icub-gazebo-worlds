@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+
+    <!-- Light -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Ground Plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <model name="iCub">
+      <plugin name='torso_configuration_override' filename='libgazebo_yarp_configurationoverride.so'>
+        <yarpPluginConfigurationOverride plugin_name='controlboard_torso'> </yarpPluginConfigurationOverride>
+        <initialConfiguration>0.0    0.0    0.1388792845</initialConfiguration>
+      </plugin>
+      <plugin name='larm_configuration_override' filename='libgazebo_yarp_configurationoverride.so'>
+        <yarpPluginConfigurationOverride plugin_name='controlboard_left_arm_no_hand'> </yarpPluginConfigurationOverride>
+        <initialConfiguration>-0.0629    0.4397    0.1825    0.5387         0         0        0</initialConfiguration>
+      </plugin>
+      <plugin name='rarm_configuration_override' filename='libgazebo_yarp_configurationoverride.so'>
+        <yarpPluginConfigurationOverride plugin_name='controlboard_right_arm_no_hand'> </yarpPluginConfigurationOverride>
+        <initialConfiguration>-0.0629    0.4397    0.1825    0.5387         0         0        0</initialConfiguration>
+      </plugin>
+      <plugin name='lleg_configuration_override' filename='libgazebo_yarp_configurationoverride.so'>
+        <yarpPluginConfigurationOverride plugin_name='controlboard_left_leg'> </yarpPluginConfigurationOverride>
+        <initialConfiguration>0.0899    0.0233   -0.0046   -0.5656   -0.3738   -0.0236</initialConfiguration>
+      </plugin>
+      <plugin name='rleg_configuration_override' filename='libgazebo_yarp_configurationoverride.so'>
+        <yarpPluginConfigurationOverride plugin_name='controlboard_right_leg'> </yarpPluginConfigurationOverride>
+        <initialConfiguration>0.0899    0.0233   -0.0046   -0.5656   -0.3738   -0.0236</initialConfiguration>
+      </plugin>
+      <include>
+        <uri>model://iCubGazeboV2_5</uri>
+        <pose>0.0 0.0 0.62 -0.05 0.0 3.14094</pose>
+      </include>
+    </model>
+  </world>
+</sdf>
